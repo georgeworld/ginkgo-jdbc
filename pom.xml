@@ -103,6 +103,8 @@
                 <configuration>
                     <forkMode>once</forkMode>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <!-- 打包时，不执行单元测试 -->
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
 
