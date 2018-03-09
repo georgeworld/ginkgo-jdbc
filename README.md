@@ -8,7 +8,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;Ginkgo JDBC 框架，适用于那些不想依赖大批第三方类库的场景，比如不想依赖一堆Spring类库，只想为自己的项目提供一个干净的JDBC操作功能，而且不需要各种花哨的JDBC操作，只想要基本的增删改查，分页，实体映射功能，此时，您就可以选择使用Ginkgo JDBC Framework.<br>
  
 # 运行演示
+![image](https://raw.githubusercontent.com/georgeworld/georgeworld.github.com/master/ginkgo/jdbc/img/src-code.png)<br>  
+执行结果如下：<br>
 ![image](https://raw.githubusercontent.com/georgeworld/georgeworld.github.com/master/ginkgo/jdbc/img/code.png)<br>  
+多次执行以后，数据库中的数据如下：<br>
 ![image](https://raw.githubusercontent.com/georgeworld/georgeworld.github.com/master/ginkgo/jdbc/img/data-in-db.png)<br>  
 
 # 参与及讨论

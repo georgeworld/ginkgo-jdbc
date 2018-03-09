@@ -11,6 +11,7 @@ import com.georgeinfo.jdbc.dao.helper.BasicType;
 import com.georgeinfo.jdbc.dao.helper.DataRow;
 import com.georgeinfo.jdbc.dao.utils.DaoException;
 import com.georgeinfo.jdbc.dao.utils.SqlParam;
+
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -86,17 +87,20 @@ public class MainTest {
 
             //## 第一部分：【增】 ###################################################
             //插入第一个用户
-            dao.execute("insert into user_info(name,creation_time) values(:name,:creationTime)", SqlParam.initParam("name", "张三").addParam("creationTime", new Date()));
+            dao.execute("insert into user_info(name,creation_time) values(:name,:creationTime)",
+                    SqlParam.initParam("name", "张三").addParam("creationTime", new Date()));
             LOG.debug("### Insert the first user:【张三】");
 
             //插入第二个用户
-            Long userId = dao.insertAndGetId("insert into user_info(name,creation_time) values(:name,:creationTime)", SqlParam.initParam("name", "李四").addParam("creationTime", new Date()));
+            Long userId = dao.insertAndGetId("insert into user_info(name,creation_time) values(:name,:creationTime)",
+                    SqlParam.initParam("name", "李四").addParam("creationTime", new Date()));
             LOG.debug("### Insert the second user:【李四】");
             //打印第二个插入的用户的ID
             LOG.debug("### The second inserted user ID is:" + userId);
 
             //插入第三个用户
-            Long userIdOfThirdUser = dao.insertAndGetId("insert into user_info(name,creation_time) values(:name,:creationTime)", SqlParam.initParam("name", "王五").addParam("creationTime", new Date()));
+            Long userIdOfThirdUser = dao.insertAndGetId("insert into user_info(name,creation_time) values(:name,:creationTime)",
+                    SqlParam.initParam("name", "王五").addParam("creationTime", new Date()));
             LOG.debug("### Insert the third user:【王五】");
 
             //## 第二部分：【删】 ###################################################
@@ -106,10 +110,13 @@ public class MainTest {
 
             //## 第三部分：【改】 ###################################################
             //修改第三个用户的名字
-            dao.execute("update user_info set name = :name where user_id = :userId", SqlParam.initParam("name", "王五改名为“王五弟弟”").addParam("userId", userIdOfThirdUser));
+            dao.execute("update user_info set name = :name where user_id = :userId",
+                    SqlParam.initParam("name", "王五改名为“王五弟弟”")
+                            .addParam("userId", userIdOfThirdUser));
 
             //## 第四部分：【查】 ###################################################
-            ArrayList<DataRow> rows = dao.queryList("select * from user_info where user_id != :param order by user_id asc", SqlParam.initParam("param", -100));
+            ArrayList<DataRow> rows = dao.queryList("select * from user_info where user_id != :param order by user_id asc",
+                    SqlParam.initParam("param", -100));
             if (rows == null || rows.isEmpty()) {
                 LOG.debug("### No data.");
             } else {
@@ -120,11 +127,13 @@ public class MainTest {
             }
 
             //## 第五部分：【查询一个用户】 ##########################################
-            UserInfo user = dao.queryOneEntity("select * from user_info where user_id = :userId", SqlParam.initParam("userId", userIdOfThirdUser), UserInfo.class);
+            UserInfo user = dao.queryOneEntity("select * from user_info where user_id = :userId",
+                    SqlParam.initParam("userId", userIdOfThirdUser), UserInfo.class);
             LOG.debug("### The user is :" + user.getName());
 
             //## 第六部分：【查询一个基本类型字段值】 ################################
-            Integer userIdOfFirstUser = dao.queryOneBasicValue("select user_id from user_info where name = :name limit 0,1", SqlParam.initParam("name", "张三"), BasicType.INTEGER_WRAP);
+            Integer userIdOfFirstUser = dao.queryOneBasicValue("select user_id from user_info where name = :name limit 0,1",
+                    SqlParam.initParam("name", "张三"), BasicType.INTEGER_WRAP);
             LOG.debug("### The user id of the first user is :" + userIdOfFirstUser);
 
             //提交事务（如果begin()与end()之间，只有查询类的SQL操作，则无需提交事务）
