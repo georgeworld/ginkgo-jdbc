@@ -8,13 +8,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;Ginkgo JDBC 框架，适用于那些不想依赖大批第三方类库的场景，比如不想依赖一堆Spring类库，只想为自己的项目提供一个干净的JDBC操作功能，而且不需要各种花哨的JDBC操作，只想要基本的增删改查，分页，实体映射功能，此时，您就可以选择使用Ginkgo JDBC Framework.<br>
  
 # 运行演示
-&nbsp;&nbsp;&nbsp;&nbsp;演示代码在项目中的位置是：{src/test/java}/com/georgeinfo/test/MainTest.java，运行之前，先修改数据库连接文件：{src/test/resources}/resources/jdbc.properties文件中的数据库连接参数，然后在你自己的数据库上创建测试表如下：
+&nbsp;&nbsp;&nbsp;&nbsp;演示代码在项目中的位置是：**{src/test/java}/com/georgeinfo/test/MainTest.java**，运行之前，先修改 **{src/test/resources}/resources/jdbc.properties**文件中的数据库连接参数，然后在你自己的数据库上创建测试表如下：
 > CREATE TABLE `user_info` (
-    `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-    `name` varchar(45) DEFAULT NULL COMMENT '姓名',
-    `creation_time` datetime DEFAULT NULL COMMENT '创建时间',
-    PRIMARY KEY (`user_id`)
-  ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='用户表';
+>    `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+>    `name` varchar(45) DEFAULT NULL COMMENT '姓名',
+>    `creation_time` datetime DEFAULT NULL COMMENT '创建时间',
+>    PRIMARY KEY (`user_id`)
+>  ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 ![image](https://raw.githubusercontent.com/georgeworld/georgeworld.github.com/master/ginkgo/jdbc/img/src-code.png)<br>  
 执行结果如下：<br>
