@@ -1,0 +1,41 @@
+ /**
+     * 请使用public List<Integer> insertAndGetId(String sql,
+     * HashMap<String, Object> paramsMap) throws SQLException代替
+     *
+     * @deprecated
+     */
+    @Override
+    public int insertAndGetId(String sql, Map<String, Object> paramsMap, LastInsertId sqlForGetLastInsertId) throws SQLException {
+        int result = -1;
+        int ret = 0;
+
+        SqlAndParams sqlAndParams = NamedSqlUtils.getPreparedSqlAndSortedParamsMap(sql, paramsMap);
+        sql = sqlAndParams.getSql();
+        ArrayList paramsLinked = sqlAndParams.getParams();
+
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Connection conn = getCurrentConn();
+        try {
+            printSQL(sql, paramsLinked);
+            pstmt = conn.prepareStatement(sql);
+            apply(pstmt, paramsLinked);
+            ret = pstmt.executeUpdate();
+
+            //执行完插入语句后，紧接着执行获得最新ID的SQL语句
+            printSQLWithListParams(sqlForGetLastInsertId.getSql(), null);
+            // 对于MySQL,使用"SELECT last_insert_id()"来获得最新的主键ID
+            rs = pstmt.executeQuery(sqlForGetLastInsertId.getSql());
+            if (rs.next()) {
+                result = rs.getInt(1);
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (pstmt != null) {
+                pstmt.close();
+            }
+        }
+        return result;
+    }
