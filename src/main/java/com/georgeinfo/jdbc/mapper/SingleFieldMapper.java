@@ -1,6 +1,6 @@
 /*
 * Copyright (c) George software studio, All Rights Reserved.
-* George <georgeinfo@qq.com> | http://www.georgeinfo.com 
+* George <GeorgeWorld@qq.com> | QQ:178069108 | www.georgeinfo.com 
 */
 package com.georgeinfo.jdbc.mapper;
 
