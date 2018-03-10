@@ -7,6 +7,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;这个框架一开始就是[老乔](http://www.georgeinfo.com)利用私人时间，为自己所开发的一个框架，一开始只应用于自己的呼叫中心项目，后来逐步提供给其他项目使用。现在开源出来，希望有更多的人使用，更多的人参与改进，以便把这个框架做得更好。<br>  
 &nbsp;&nbsp;&nbsp;&nbsp;Ginkgo JDBC 框架，适用于那些不想依赖大批第三方类库的场景，比如不想依赖一堆Spring类库，只想为自己的项目提供一个干净的JDBC操作功能，而且不需要各种花哨的JDBC操作，只想要基本的增删改查，分页，实体映射功能，此时，您就可以选择使用Ginkgo JDBC Framework.<br>
  
+# 设计
+![image](https://raw.githubusercontent.com/georgeworld/georgeworld.github.com/master/ginkgo/jdbc/img/class-diagram.png)<br>  
+
+
 # 运行演示
 &nbsp;&nbsp;&nbsp;&nbsp;演示代码在项目中的位置是：**{src/test/java}/com/georgeinfo/test/MainTest.java**，运行之前，先修改 **{src/test/resources}/resources/jdbc.properties**文件中的数据库连接参数，然后在你自己的数据库上创建测试表如下：
 > CREATE TABLE `user_info` (
