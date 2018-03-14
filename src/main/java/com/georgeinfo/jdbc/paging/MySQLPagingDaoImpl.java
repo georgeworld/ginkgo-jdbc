@@ -97,7 +97,7 @@ public class MySQLPagingDaoImpl extends ProtoTypeBatchDaoImpl implements PagingD
                 while (rs.next()) {
                     DataRow recordMap = new DataRow();
                     for (int i = 1; i <= columnCount; i++) {
-                        String name = meta.getColumnName(i);
+                        String name = meta.getColumnLabel(i);
                         int sqlType = meta.getColumnType(i);
                         String columnTypeName = meta.getColumnTypeName(i);
 
@@ -112,7 +112,7 @@ public class MySQLPagingDaoImpl extends ProtoTypeBatchDaoImpl implements PagingD
                 while (rs.next()) {
                     DataRow recordMap = new DataRow();
                     for (int i = 1; i <= columnCount; i++) {
-                        String name = meta.getColumnName(i);
+                        String name = meta.getColumnLabel(i);
                         int sqlType = meta.getColumnType(i);
                         String columnTypeName = meta.getColumnTypeName(i);
 

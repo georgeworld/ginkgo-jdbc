@@ -92,7 +92,7 @@ public class OraclePagingDaoImpl extends ProtoTypeBatchDaoImpl implements Paging
                 while (rs.next()) {
                     DataRow recordMap = new DataRow();
                     for (int i = 1; i <= columnCount; i++) {
-                        String name = meta.getColumnName(i);
+                        String name = meta.getColumnLabel(i);
                         int sqlType = meta.getColumnType(i);
                         String columnTypeName = meta.getColumnTypeName(i);
 
@@ -107,7 +107,7 @@ public class OraclePagingDaoImpl extends ProtoTypeBatchDaoImpl implements Paging
                 while (rs.next()) {
                     DataRow recordMap = new DataRow();
                     for (int i = 1; i <= columnCount; i++) {
-                        String name = meta.getColumnName(i);
+                        String name = meta.getColumnLabel(i);
                         int sqlType = meta.getColumnType(i);
                         String columnTypeName = meta.getColumnTypeName(i);
 
