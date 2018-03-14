@@ -73,7 +73,7 @@ public class DaoExecutor {
             DataRow recordMap = new DataRow();
 
             for (int i = 1; i <= colCount; i++) {
-                //如果使用meta.getColumnLabel(i)，则当SQL语句中有别名时，取得的还是字段名称，而不是别名
+                //如果使用meta.getColumnName(i)，则当SQL语句中有别名时，取得的还是字段名称，而不是别名
                 //而使用meta.getColumnLabel(i)则可以实现：当SQL中有字段别名时，取到的是字段别名，没有别名时，取到的是字段名称
                 String name = meta.getColumnLabel(i);
                 int sqlType = meta.getColumnType(i);
