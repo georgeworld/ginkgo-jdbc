@@ -6,3 +6,6 @@ build.xml
 target
 .idea
 *.iml
+.settings
+.classpath
+.project
