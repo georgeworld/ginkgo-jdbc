@@ -100,7 +100,9 @@ public class MySQLPagingDaoImpl extends ProtoTypeBatchDaoImpl implements PagingD
                         String name = meta.getColumnLabel(i);
                         int sqlType = meta.getColumnType(i);
                         String columnTypeName = meta.getColumnTypeName(i);
-
+                        //当数据库字段类型为TINYINT时，如果数据长度为1，JDBC会识别该字段为BIT类型，column types 会
+                        //返回-7（解释见：java.sql.Types），所以，如果想在Java中用Short类型，数据库字段用TINYINT
+                        //类型，则字段大小最少为2
                         Object value = JdbcTypes.convertTypeOfResultSetField(rs, i, sqlType,columnTypeName);
 
                         recordMap.put(name, value);
